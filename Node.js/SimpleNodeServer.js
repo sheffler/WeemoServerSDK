@@ -41,7 +41,7 @@ var server = http.createServer(function (request, response) {
       var uid = qparams["uid"];
 
       // Set the client and profile identifiers as appropriate for you Weemo agreement
-      var identifier_client = "tsheffler.wauth9";
+      var identifier_client = "yourdomain.com";
       var id_profile = "premium";
 
       console.log(["uid", uid, identifier_client, id_profile]);
