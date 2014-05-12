@@ -83,7 +83,7 @@ Obtain a token by calling the ```getAuthToken``` method on behalf of a particula
 String authToken = auth.getAuthToken(UID, DOMAIN, PROFILE);
 ```
 
-You should receive a JSON object as a reply with a ```token`` field.  If an error occurred, the HTTP status will be set to a 5xx value and the JSON object will contain an ```error``` field.
+You should receive a JSON object as a reply with a ```token``` field.  If an error occurred, the HTTP status will be set to a 5xx value and the JSON object will contain an ```error``` field.
 
 
 
