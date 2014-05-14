@@ -4,7 +4,7 @@ With OSX 10.9 (Mavericks), Apple switched the built-in curl and libcurl from usi
 
 http://curl.haxx.se/mail/archive-2013-10/0036.html
 
-In Mavericks, the default curl and libcurl do not read certificate authority files (it reads from the system keychain) and client certificates ar not supported.  Weemo's authentication client relies on verifying the identity of your server through the use of client certificates.  If you are interested in developing on Mavericks, it is possible but will require installing and building your own versions of OpenSSL and libcurl.  You may choose to use macports or fink, or you can build these tools from sources.
+In Mavericks, the default curl and libcurl do not read certificate authority files (it reads from the system keychain) and client certificates are not supported.  Weemo's authentication client relies on verifying the identity of your server through the use of client certificates.  If you are interested in developing on Mavericks, it is possible but will require installing and building your own versions of OpenSSL and libcurl.  You may choose to use macports or fink, or you can build these tools from sources.
 
 ## Building from Sources
 
@@ -14,7 +14,7 @@ http://mac-dev-env.patrickbougie.com/
 
 It includes a detailed description of how to build OpenSSL as well as its dependencies.  For Weemo's Ruby and PHP clients, you will also need to build a local version of libcurl.
 
-If you are building PHP, you will need to provide export a shared library from openssl.  Patrick's instructions do not show this.  Add the "shared" option to the configure command.
+If you are building PHP, you will need to export a shared library from openssl.  Patrick's instructions do not show this.  Add the "shared" option to the configure command.
 
 ```sh
 ./configure darwin64-x86_64-cc shared --prefix=/usr/local/openssl-1.0.1g
