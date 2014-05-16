@@ -13,7 +13,7 @@ Requirements:
 
 You may obtain your Authentication Provider credentials from Weemo.
 
-**Rails Support:** integration is straightfoward and is described here: [Rails4](doc/RAILS.md).
+![Rails](images/rails_32.png) **Rails Support:** integration is straightfoward and is described here: [Rails4](doc/RAILS.md).
 
 ## Installing the Client
 
