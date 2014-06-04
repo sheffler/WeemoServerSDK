@@ -7,6 +7,7 @@ The Node.js client is distributed with a simple demonstration server you can use
 Requirements:
 
 - Node 0.10.25 or greater
+- Openssl - command line tools
 
 You may obtain your Authentication Provider credentials from Weemo.
 
