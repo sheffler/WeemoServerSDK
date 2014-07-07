@@ -53,7 +53,7 @@ To use the example server, configure ```SimpleRubyServer.rb``` with the followin
 | WEEMO_CERTPASSWORD   | The p12 "passphrase" given to you. |
 | WEEMO_CLIENT_ID      | The 30 character "Client ID" given to you by Weemo. |
 | WEEMO_CLIENT_SECRET  | The 30 character secret accompanying the ID above. |
-| WEEMO_AUTH_URL       | "https://oauths.weemo.com" |
+| WEEMO_AUTH_URL       | "https://oauths.weemo.com/auth/" |
 
 You will also need to set these two variables in the body of the ```do_GET``` method.
 
