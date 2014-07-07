@@ -34,7 +34,7 @@ the following pieces of information.
 | P12_PASS       | The p12 "passphrase" given to you. |
 | CLIENT_ID      | The 30 character "Client ID" given to you by Weemo. |
 | CLIENT_SECRET  | The 30 character secret accompanying the ID above. |
-| AUTH_URL       | "https://oauths.weemo.com" |
+| AUTH_URL       | "https://oauths.weemo.com/auth/" |
 
 You will also need to set these two variables.
 
