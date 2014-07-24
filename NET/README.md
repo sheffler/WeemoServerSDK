@@ -15,9 +15,21 @@ Get a copy of the dll files from the Release page and reference these dll files 
 
 ##Using the Client with an Inversion of Control Container
 
-The Weemo .NET SDK is written to support multiple implementations, so you can choose the one that best suits your needs. If you're already using an Inversion of Control container, then it's ready to go. After an example using TinyIoC, we'll also show you how to use it using poor man's DI, if you're not using a container.
+The Weemo .NET SDK is written to support multiple implementations, so you can choose the one that best suits your needs. Your project will need to reference the appropriate dependencies for the Weemo Client implementations to work. 
 
-If you're using Nancy, in the Bootstrapper, override ConfigureApplicationContainer
+#### The RestSharp client depends on 
+
+- Newtonsoft JSON.NET
+- RestSharp
+
+#### The HttpWebRequest client depends on 
+
+- Newtonsoft JSON.NET
+
+
+If you're already using an Inversion of Control container, our first example is for you.  It is based on a Nancy project using TinyIoC. If you're not using IoC, we'll also show you how to use it using a client factory.
+
+In this Nancy example, we override the Bootstrapper's ConfigureApplicationContainer method
 
 ```
 private IWeemoConfig GetWeemoConfig() 
