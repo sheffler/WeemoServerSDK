@@ -31,12 +31,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Weemo.Api.HttpWebRequest\JsonSerialization\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp, Version=104.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>RestSharp\RestSharp.dll</HintPath>
+      <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,16 +45,13 @@
     <Compile Include="RestSharpWeemoClient.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="JsonSerialization\Newtonsoft.Json.dll" />
-    <Content Include="JsonSerialization\Newtonsoft.Json.xml" />
-    <Content Include="RestSharp\RestSharp.dll" />
-    <Content Include="RestSharp\RestSharp.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Weemo.Api\Weemo.Api.csproj">
       <Project>{ad870687-0fbd-482b-9a06-9418a93ae7c0}</Project>
       <Name>Weemo.Api</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
