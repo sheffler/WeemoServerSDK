@@ -7,12 +7,11 @@
 # openssl pkcs12 -in client.p12 -clcerts -nokeys -out publicCert.pem
 #
 # Tom Sheffler
-# Jul 2014
+# Feb 2014
 #
 
-require 'net/https'
+require 'curb'
 require 'uri'
-require 'openssl'
 require 'json'
 require 'logger'
 
@@ -34,7 +33,6 @@ class WeemoAuth
     Logger.info "WeemoAuth#auth #{uid}"
 
     url = "#{@auth_url}?client_id=#{@client_id}&client_secret=#{@client_secret}"
-    uri = URI.parse(url)
 
     params = {
       "uid" => uid,
@@ -42,31 +40,27 @@ class WeemoAuth
       "id_profile" => profile
     }
 
-    # Create a new Request
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_PEER
-    http.ssl_version = :SSLv3
+    args = URI.encode_www_form(params)
 
-    # Never enable this debugging statement in production, but it is helpful for debug
-    http.set_debug_output $stderr
+    Logger.debug "WeemoAuth#auth POST #{url}"
+    Logger.debug "WeemoAuth#auth ARGS #{args}"
 
-    # Add the CA certs
-    store = OpenSSL::X509::Store.new
-    store.add_cert(OpenSSL::X509::Certificate.new(File.read(@ca_file)))
-    http.cert_store = store
+    req = Curl::Easy.http_post(url, args) do |curl|
 
-    # Add the client cert
-    http.key = OpenSSL::PKey::RSA.new(File.read(@private_key), @cert_password)
-    http.cert = OpenSSL::X509::Certificate.new(File.read(@public_cert))
+      curl.verbose = true
+      curl.ssl_version = 3
+      curl.follow_location = true
 
-    request = Net::HTTP::Post.new(uri.request_uri)
-    request.set_form_data(params)
+      curl.cacert = @ca_file
+      curl.cert = @public_cert
+      curl.certpassword = @cert_password
+      curl.certtype = "PEM"
+      curl.cert_key = @private_key
 
-    response = http.request(request)
-
-    # Logger.debug "WeemoAuth#auth:resp #{response.inspect}"
+      Logger.debug "WeemoAuth#auth:curl #{curl.inspect}"
       
+    end
+
     # Upon success, this returns an object like:
     #  {"token"=>"7d7744de4dfa349aaa4d4706c6038fc6890cb2da"}
     # Upon failure, this returns an object like:
@@ -75,13 +69,13 @@ class WeemoAuth
     # Logger.debug "WeemoAuth#body_str #{req.body_str.inspect}"
 
     begin
-      obj = JSON.parse(response.body)
+      obj = JSON.parse(req.body_str)
     rescue Exception => e
-      Logger.debug "NonJSON Response:::#{response.body}:::"
+      Logger.debug "NonJSON Response:::#{req.body_str}:::"
       obj = { "error" => 500, "error_description" => "Unparsable JSON" }
     end
 
-    # Logger.debug "WeemoAuth#auth:obj #{obj.inspect}"
+    Logger.debug "WeemoAuth#auth:obj #{obj.inspect}"
     return obj
 
   end
