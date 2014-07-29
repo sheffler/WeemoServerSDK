@@ -1,6 +1,9 @@
 #
 # Weemo Auth Client for Ruby
 #
+# We provide this alternate Ruby-based authentication client based on the curb
+# gem.
+#
 # Prior to using this module, unpack the "client.p12" into its two components as follows:
 # 
 # openssl pkcs12 -in client.p12 -nocerts -out privateKey.pem

@@ -8,12 +8,11 @@ Requirements:
 
 - Ruby 1.9 or greater
 - Openssl - command line tools and developer tools (to build Curb)
-- Libcurl - developer tools (to build Curb)
-- Curb gem
 
 You may obtain your Authentication Provider credentials from Weemo.
 
 ![Rails](images/rails_32.png) **Rails Support:** integration is straightfoward and is described here: [Rails4](doc/RAILS.md).
+
 
 ## Installing the Client
 

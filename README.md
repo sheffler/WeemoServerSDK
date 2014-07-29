@@ -9,9 +9,10 @@ Weemo provides Server SDKs in the following languages.  Each development package
 | Collection         | Description  |
 |:------------------:|--------------|
 | ![java](images/java_32.png)       | [Java](Java) - Official Java Library and demonstration server |
-| ![ruby](images/ruby-logo-32.png)  | [Ruby](Ruby) - a Ruby Library with Rails implementation notes |
+| ![ruby](images/ruby-logo-32.png)  | [Ruby](Ruby) - a Ruby Library with Rails implementation notes and demonstration server |
 | ![php](images/php_32.png)         | [Php](PHP)  - Official PHP Library and demonstration server |
 | ![node.js](images/js_32.png)      | [Node.js](Node.js) - Official Node.js Library |
+| ![.NET](images/net-logo-32.jpg)   | [.NET](NET) - Community contributed .NET/CSharp libraries and test programs |
 
 
 ## Overview of Weemo Authentication
