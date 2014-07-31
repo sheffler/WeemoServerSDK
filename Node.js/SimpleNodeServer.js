@@ -50,7 +50,7 @@ var server = http.createServer(function (request, response) {
       client.auth(
         uid, identifier_client, id_profile,
         function(result) {
-          response.writeHead(200, {'Content-Type' : 'application/json'});
+          response.writeHead(200, {'Content-Type' : 'application/json', 'Access-Control-Allow-Origin' : '*'});
           response.write(result);
           response.end();
         },

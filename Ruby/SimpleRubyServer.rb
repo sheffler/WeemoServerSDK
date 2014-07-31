@@ -45,6 +45,7 @@ class WeemoServlet < WEBrick::HTTPServlet::AbstractServlet
 
       response.status = 200
       response.content_type = "application/json"
+      response['Access-Control-Allow-Origin'] = '*'
       response.body = JSON.generate(obj)
     else
       response.status = 500

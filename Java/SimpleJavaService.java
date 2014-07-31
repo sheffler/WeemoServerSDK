@@ -115,7 +115,8 @@ public class SimpleJavaService {
 
             // add the required response header for JSON
             Headers h = t.getResponseHeaders();
-            h.add("Content-Type", "application/json");            
+            h.add("Content-Type", "application/json");
+            h.add("Access-Control-Allow-Origin", "*");
 
             // write the response body
             t.sendResponseHeaders(200, response.length());

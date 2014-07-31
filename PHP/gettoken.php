@@ -61,6 +61,7 @@ try {
     // Get token access
     $access_token = $a->sent($uid, $identifier_client, $id_profile);
 
+    header('Access-Control-Allow-Origin: *');
     echo $access_token;
 }
 catch(Exception $e) {
