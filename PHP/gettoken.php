@@ -66,6 +66,7 @@ try {
 }
 catch(Exception $e) {
     error_log($e->getMessage());
+    header('Access-Control-Allow-Origin: *');
     echo "Server Problem";
 }
 ?>

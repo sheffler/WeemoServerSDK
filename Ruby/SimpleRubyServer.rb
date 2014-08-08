@@ -50,7 +50,8 @@ class WeemoServlet < WEBrick::HTTPServlet::AbstractServlet
     else
       response.status = 500
       response.content_type = "application/json"
-      response.body = JSON.generate( {"error" => "You did not not provide the correct parameters"} )
+      response['Access-Control-Allow-Origin'] = '*'
+      response.body = JSON.generate( {"error" => 500, "error_description" => "You did not not provide the correct parameters"} )
     end
   end
 

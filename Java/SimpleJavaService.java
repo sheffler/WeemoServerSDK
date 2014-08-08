@@ -7,6 +7,8 @@
  * How to run:
  *   javac -cp WeemoServerAuth-1.0-java6.jar SimpleJavaService.java util/ParameterFilter.java
  *   java -cp WeemoServerAuth-1.0-java6.jar:util:. SimpleJavaService
+ *
+ * On Windows, replace the ':' in the classpath with ';'.
  */
 
 // Import Weemo Auth Classes

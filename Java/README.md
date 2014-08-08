@@ -50,6 +50,9 @@ Compile and run the simple server this way.
     javac -cp WeemoServerAuth-1.0-java6.jar SimpleJavaService.java util/ParameterFilter.java
     java -cp WeemoServerAuth-1.0-java6.jar:util:. SimpleJavaService
 
+Note: on Windows, you should replace the ':' in the classpath with ';' as shown below.
+
+    java -cp WeemoServerAuth-1.0-java6.jar;util;. SimpleJavaService
 
 ## Testing the Example Server
 

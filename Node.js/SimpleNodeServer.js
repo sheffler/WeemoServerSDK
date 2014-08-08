@@ -55,19 +55,19 @@ var server = http.createServer(function (request, response) {
           response.end();
         },
         function(e) {
-          response.writeHead(500, {'Content-Type' : 'text/plain'});
+          response.writeHead(500, {'Content-Type' : 'text/plain', 'Access-Control-Allow-Origin' : '*'});
           response.write(e);
           response.end();
         });
     }
     else {
-      response.writeHead(500, {'Content-Type' : 'application/json'});
-      response.write(JSON.stringify({ "error" : "You did not provide the correct parameters" }));
+      response.writeHead(500, {'Content-Type' : 'application/json', 'Access-Control-Allow-Origin' : '*'});
+      response.write(JSON.stringify({ "error" : 500, "error_description" : "You did not provide the correct parameters" }));
       response.end();
     }
   }
   else {
-    response.writeHead(404, {'Content-Type' : 'text'});
+    response.writeHead(404, {'Content-Type' : 'text', 'Access-Control-Allow-Origin' : '*'});
     response.end("Not Found");
   }
 
