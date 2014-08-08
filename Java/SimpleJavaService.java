@@ -98,7 +98,7 @@ public class SimpleJavaService {
 
             if (uid == null) {
                 System.out.println("No UID found in request");
-                response = "{ \"error\" : \"unspecified\" }";
+                response = "{ \"error\" : \"UID\", \"error_description\" : \"No UID found in request\" }";
             }
             else {
 
@@ -109,7 +109,7 @@ public class SimpleJavaService {
                 }
                 catch (WeemoException e) {
                     e.printStackTrace();
-                    response = "{ \"error\" : \"unspecified\" }";
+                    response = "{ \"error\" : \"AUTH\", \"error_description\" : \"An error occurred\" }";
                 }
 
                 System.out.println("Response:" + response);
