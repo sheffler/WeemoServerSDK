@@ -41,8 +41,8 @@ error_log("Got UID: " . $uid);
 //
 // client_id = Auth API_KEY provided by Weemo
 // client_secret = Auth Secret provided by Weemo
-// p12_file = path to the client.p12 file downloaded on wdportal
-// p12_passphrase = passphrase of the client.p12 file, can be found on wdportal
+// p12_file = path to the client.p12 file downloaded on https://provider.weemo.com
+// p12_passphrase = passphrase of the client.p12 file, can be found on https://provider.weemo.com
 // auth_url = URL of Weemo Auth server API
 //
 
@@ -65,8 +65,9 @@ try {
     echo $access_token;
 }
 catch(Exception $e) {
-    error_log($e->getMessage());
+    $message = $e->getMessage();
+    error_log($message);
     header('Access-Control-Allow-Origin: *');
-    echo "Server Problem";
+    echo "{ \"error\" : \Error\", \"error_description\" : \"".$message."\"}";
 }
 ?>
